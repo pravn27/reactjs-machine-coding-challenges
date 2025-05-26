@@ -1,0 +1,82 @@
+/* Container for the entire chip input area */
+.chip-input-container {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap; /* Allows chips and input to wrap to the next line */
+  align-items: center; /* Vertically aligns chips and input */
+  gap: 8px; /* Space between chips and input field */
+  min-height: 44px; /* Ensures a minimum height */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.2s;
+}
+
+.chip-input-container:focus-within {
+  border-color: #007bff; /* Highlight on focus */
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Container for displaying the chips */
+.chips-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px; /* Space between individual chips */
+}
+
+/* Individual chip styling */
+.chip {
+  display: inline-flex; /* Allows text and button to sit side-by-side */
+  align-items: center;
+  background-color: #e0e0e0;
+  border-radius: 20px; /* More rounded */
+  padding: 6px 12px;
+  font-size: 0.9em;
+  color: #333;
+  line-height: 1; /* Ensures consistent vertical alignment */
+  white-space: nowrap; /* Prevents chip text from wrapping */
+}
+
+/* Chip remove button */
+.chip-remove-button {
+  background: none;
+  border: none;
+  color: #777;
+  font-size: 1.2em;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  width: 1em; /* Ensures consistent size */
+  height: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Make it circular */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.chip-remove-button:hover {
+  color: #000;
+  background-color: #d0d0d0;
+}
+
+.chip-remove-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Input field for new chips */
+.chip-input-field {
+  flex-grow: 1; /* Allows the input to take available space */
+  border: none;
+  outline: none; /* Remove default focus outline */
+  padding: 6px 4px; /* Align with chip padding */
+  min-width: 150px; /* Prevents input from becoming too small on small screens */
+  font-size: 1em; /* Match body text size */
+}
+
+.chip-input-field::placeholder {
+  color: #999;
+}

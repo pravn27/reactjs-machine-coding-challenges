@@ -1,0 +1,44 @@
+.App {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.example-section {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+  text-align: left; /* Align content inside section to left */
+}
+
+.component-wrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex; /* Use flex to center the component within its wrapper */
+  justify-content: center;
+}
