@@ -1,50 +1,71 @@
-import React, { useState } from "react";
-import ChipInput from "./components/ChipInput/ChipInput"; // Import the ChipInput component
-import "./App.css"; // Optional, for basic app styling
+import { useState } from "react";
+import ChipInput from "./components/ChipInput";
+import "./App.css";
 
 function App() {
-  const [currentChips, setCurrentChips] = useState([]);
-  const [emailChips, setEmailChips] = useState([]);
+  const [chips, setChips] = useState([]);
 
-  // Example validation function for emails
-  const validateEmail = (email) => {
-    // Basic regex for email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const handleChange = (newChips) => {
+    setChips(newChips);
+  };
+
+  const handleAdd = (chip) => {
+    console.log("Added:", chip);
+  };
+
+  const handleRemove = (chip) => {
+    console.log("Removed:", chip);
+  };
+
+  const validateChip = (input) => {
+    if (input.length < 3) return "Chip must be at least 3 characters long";
+    if (input.length > 20) return "Chip must be less than 20 characters";
+    return "";
   };
 
   return (
-    <div className="App">
-      {/* <h1>Frontend System Design: Chip Input Box</h1> */}
+    <div className="app">
+      <h1>Chip Input Demo</h1>
+      <div className="demo-section">
+        <h2>Basic Usage</h2>
+        <ChipInput
+          value={chips}
+          onChange={handleChange}
+          onAdd={handleAdd}
+          onRemove={handleRemove}
+          placeholder="Type and press Enter..."
+        />
+      </div>
 
-      <section className="example-section">
-        <h2>Basic Chip Input</h2>
-        <p>
-          Type and press Enter or Tab to add. Backspace on empty input removes
-          last chip.
-        </p>
-        <div className="component-wrapper">
-          <ChipInput
-            placeholder="Add tags..."
-            initialChips={["React", "CSS"]}
-            onChipsChange={setCurrentChips} // Get chips state in parent
-          />
-        </div>
-        <p>Current tags in parent: {currentChips.join(", ") || "None"}</p>
-      </section>
+      <div className="demo-section">
+        <h2>With Validation</h2>
+        <ChipInput
+          value={chips}
+          onChange={handleChange}
+          validate={validateChip}
+          placeholder="Enter 3-20 characters..."
+        />
+      </div>
 
-      <section className="example-section">
-        <h2>Chip Input with Validation (Emails)</h2>
-        <p>Only valid email addresses can be added as chips.</p>
-        <div className="component-wrapper">
-          <ChipInput
-            placeholder="Add email addresses..."
-            validateChip={validateEmail}
-            onChipsChange={setEmailChips}
-          />
-        </div>
-        <p>Current emails in parent: {emailChips.join(", ") || "None"}</p>
-      </section>
+      <div className="demo-section">
+        <h2>With Max Chips</h2>
+        <ChipInput
+          value={chips}
+          onChange={handleChange}
+          maxChips={3}
+          placeholder="Maximum 3 chips..."
+        />
+      </div>
+
+      <div className="demo-section">
+        <h2>Disabled State</h2>
+        <ChipInput
+          value={chips}
+          onChange={handleChange}
+          disabled
+          placeholder="This input is disabled..."
+        />
+      </div>
     </div>
   );
 }

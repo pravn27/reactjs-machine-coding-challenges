@@ -1,0 +1,102 @@
+.chip-input {
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.chip-input__container {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.chip-input__container:focus-within {
+  border-color: #0066cc;
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+}
+
+.chip-input__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #f5f5f5;
+  min-height: 40px;
+}
+
+.chip-input__chip {
+  display: inline-flex;
+  align-items: center;
+  background: #e3f2fd;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: #1976d2;
+  animation: chip-appear 0.2s ease-out;
+}
+
+.chip-input__chip-text {
+  margin-right: 4px;
+}
+
+.chip-input__chip-remove {
+  background: none;
+  border: none;
+  color: #1976d2;
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-input__chip-remove:hover {
+  background: rgba(25, 118, 210, 0.1);
+}
+
+.chip-input__chip-remove:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.chip-input__input {
+  flex: 1;
+  min-width: 120px;
+  border: none;
+  outline: none;
+  padding: 4px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.chip-input__input:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.chip-input__error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 4px;
+  padding: 0 8px;
+}
+
+@keyframes chip-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
